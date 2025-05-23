@@ -1,0 +1,8 @@
+PROGRAMA "u":
+INICIO
+A = 6
+B = 2
+C = 3
+D = 2
+RES = (A / B) + C * D
+FIM

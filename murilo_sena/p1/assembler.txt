@@ -1,0 +1,32 @@
+Assembler Neander - Gramática Implementada
+A linguagem assembly aceita pelo assembler segue as seguintes definições formais:
+<programa> ::= .DATA <decls> .CODE <instrucoes>
+<decls> ::= <decl> <decls> | e
+<decl> ::= <identificador> DB <valor>
+<valor> ::= número decimal (0-255) ou ? para indefinido
+<instrucoes> ::= <instr> <instrucoes> | e
+<instr> ::= LDA <identificador>
+| STA <identificador>
+| ADD <identificador>
+| SUB <identificador>
+| JMP <identificador>
+| JMN <identificador>
+| JMZ <identificador>
+| HLT
+| <rotulo> :
+<rotulo> ::= sequência de caracteres alfanuméricos sem espaços
+Observações:
+- O assembler é case-insensitive quanto a instruções e labels.
+- Cada linha representa uma única instrução ou declaração.
+- Comentários são suportados com prefixo ';' e ignorados na montagem.
+- A diretiva .ORG 0 indica o início do código na memória.
+- A memória é carregada a partir da posição 0x0004 com as instruções.
+- Labels são resolvidos na primeira passagem como endereços de salto.
+Exemplo de instrução válida:
+LDA VAR1
+Exemplo de declaração de dados:
+VAR1 DB 10
+Exemplo de label de desvio:
+LOOP:
+ADD VAR2
+JMP LOOP

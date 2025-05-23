@@ -1,0 +1,28 @@
+<programa> ::= "PROGRAMA" <ws>? <identificador_com_aspas> ":" <nl> <bloco_codigo>
+
+<identificador_com_aspas> ::= "\"" <identificador> "\""
+
+<identificador> ::= <letra> <resto_identificador>?
+<resto_identificador> ::= <letra_ou_digito>*
+
+<bloco_codigo> ::= "INICIO" <nl> <comandos> <atribuicao_final_line> "FIM" <ws>? <nl>?
+
+<comandos> ::= (<atribuicao_line>)*
+
+<atribuicao_line> ::= <atribuicao> <ws>? <nl>
+<atribuicao> ::= <identificador> <ws>? "=" <ws>? <expressao>
+
+<atribuicao_final_line> ::= <atribuicao_final> <ws>? <nl>
+<atribuicao_final> ::= "RES" <ws>? "=" <ws>? <expressao>
+
+<expressao> ::= <termo> ( <ws>? ("+" | "-") <ws>? <termo> )*
+<termo> ::= <fator> ( <ws>? ("*" | "/") <ws>? <fator> )*
+<fator> ::= "(" <ws>? <expressao> <ws>? ")" | <numero> | <identificador>
+<numero> ::= <digito>+
+
+<letra> ::= [A-Z] | [a-z]
+<digito> ::= [0-9]
+<letra_ou_digito> ::= <letra> | <digito> | "_"
+
+<ws> ::= (" " | "\t")*
+<nl> ::= "\n"
