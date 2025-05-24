@@ -1,0 +1,8 @@
+PROGRAMA "exemplo":
+INICIO
+int x = 10
+SE (x > 5) {
+float y = x * 2.5
+}
+RES = x
+FIM
