@@ -117,7 +117,10 @@ Crie um arquivo `teste.txt` com algo como:
 ```cpp
 PROGRAMA "exemplo":
 INICIO
-int x = 42
+int x = 10
+SE (x > 5) {
+float y = x * 2.5
+}
 RES = x
 FIM
 ```
